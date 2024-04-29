@@ -1,0 +1,59 @@
+body {
+    font-family: sans-serif;
+    font-weight: 100;
+    /* width: 80%; */
+    /* margin: 0 auto; */
+}
+.gameBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 3px solid salmon;
+    border-radius: 10px;
+    width: 30%;
+    height: 50vh;
+    margin: 0 auto;
+}
+.btns {
+    display: flex;
+    justify-content: space-around;
+} 
+button {
+    margin-top: 10%;
+    padding: 10px;
+    width: 25%;
+    border: 1px solid darksalmon;
+    border-radius: 5px;
+    background-color: #f0fff0;
+    color: darksalmon;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+#start {
+    margin: 0 auto;
+}
+.tie {
+    visibility: hidden;
+    letter-spacing: .1rem;
+    color: navajowhite;
+    font-weight: 700;
+}
+.choices, .choicesToo {
+    display: flex;
+    background-color: honeydew;
+    color: salmon;
+    justify-content: space-around;
+}
+.choicesToo {
+    visibility: hidden;
+}
+/* .choices {
+    visibility: hidden;
+} */
+.score {
+    display: flex;
+    justify-content: space-around;
+    background-color: salmon;
+    color: honeydew;
+}
