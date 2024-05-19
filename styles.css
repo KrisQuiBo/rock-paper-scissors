@@ -30,6 +30,20 @@ button {
     font-weight: 800;
     font-size: 1.1rem;
 }
+button#replay  {
+        margin: 0 0 0 4%;
+        width:auto;
+        padding: 10px;
+        /* width: 25%; */
+        border: 1px solid darksalmon;
+        border-radius: 5px;
+        background-color: #f0fff0;
+        color: darksalmon;
+        text-transform: uppercase;
+        font-weight: 800;
+        font-size: 1.1rem;
+    }
+
 #start {
     margin: 0 auto;
 }
@@ -47,6 +61,7 @@ button {
 }
 .choicesToo {
     visibility: hidden;
+    font-weight: 800;
 }
 /* .choices {
     visibility: hidden;
@@ -56,4 +71,15 @@ button {
     justify-content: space-around;
     background-color: salmon;
     color: honeydew;
+}
+.gameOver {
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+    visibility: hidden;
+    text-align: center;
+    color: lightsalmon;
+    font-weight: 800;
+    font-size: 2.5rem;
+    letter-spacing: .1rem;
 }

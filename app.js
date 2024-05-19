@@ -9,32 +9,19 @@ const playerRock = document.querySelector("#rock");
 const playerScissors = document.querySelector("#scissors");
 const playerPaper = document.querySelector("#paper");
 const buttons = document.querySelectorAll("button");
+let replay = document.querySelector("#replay");
 let compChoice = document.querySelector(".compChoice");
 let playChoice = document.querySelector(".playChoice");
 let player = document.querySelector('.playerScore');
 let computer = document.querySelector('.computerScore');
 let tie = document.querySelector('.tie');
-let playerSelection = 0;
-let computerSelection = 0;
+let playerWin = document.querySelector('.playerWin');
+let compWin = document.querySelector('.compWin');
+let gameOver = document.querySelector('.gameOver');
+let playerSelection;
+let computerSelection;
 
-// call the play round function and execute 5 times, console log the results of each play and the winner of the round
 
-//   function game() {
-//     // for(i=0;i<5;i++) { 
-//         playRound(playerSelection, computerSelection);     
-//         if(computerScore==playerScore) {
-//             console.log("BOOM");
-//         }
-//         // console.log(`Computer score: ${computerScore}, Player score ${playerScore}`)
-//     }
-//     if(computerScore > playerScore) {
-//         console.log(`Computer score: ${computerScore}. Computer Wins!`)
-//     } else if(playerScore > computerScore) {
-//         console.log(`Player score: ${playerScore}. Player Wins!`)
-//     } else {
-//         console.log("tied the round")
-//     }
-// } 
 // the computer is your opponent and needs to randomly select either rock paper or scissors
 function getComputerChoice() {
     let deciderNumber = Math.floor(Math.random() * (3));
@@ -68,17 +55,26 @@ function playRound() {
                 player.textContent = `Score: ${playerScore}`;
                 computer.textContent = `Score: ${computerScore}`
                 
-                if(computerScore == 6 || playerScore == 6) {
-                    alert('Game OVER!');
-                    computerScore = 0;
-                    playerScore = 0
+                if(computerScore == 3) {
+                    compChoice.textContent = `Computer: WINNER`;
+                    compWin.style.visibility = "visible";
+                    gameOver.style.visibility = "visible";
+                    // alert('Game OVER!');
+                   
+                  
                     player.textContent = `Score: ${playerScore}`;
                     computer.textContent = `Score: ${computerScore}`
                     return
+                } else if(playerScore == 3) {
+                    playChoice.textContent = `You: WINNER`;
+                    playerWin.style.visibility = "visible";
+                    gameOver.style.visibility = "visible";
+                    return;
                 }
             }); 
            
         });          
+        replay.addEventListener('click', rePlay);
     }
     //temporarily display tie message
     function showMessage() {
@@ -87,6 +83,20 @@ function playRound() {
     }
     function hideMessage() {
         tie.style.visibility = "hidden";
+    }
+
+    // reset gameboard 
+    function rePlay() { 
+        
+        computerScore = 0;
+        playerScore = 0;
+        player.textContent = `Score: ${playerScore}`;
+        computer.textContent = `Score: ${computerScore}`;
+        playChoice.textContent = `YOU: `;
+        compChoice.textContent = `COMPUTER: `;
+        playerWin.style.visibility = "hidden";
+        compWin.style.visibility = "hidden";
+        gameOver.style.visibility = "hidden";
     }
 
     playRound();
